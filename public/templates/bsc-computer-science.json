@@ -7,46 +7,55 @@
       "year": "1",
       "modules": [
         {
-          "displayName": "4000CEM Programming and Algorithms",
+          "code": "4000CEM",
+          "displayName": "Programming and Algorithms",
           "credits": 15,
           "isOptional": false
         },
         {
-          "displayName": "4001CEM Software Design",
+          "code": "4001CEM",
+          "displayName": "Software Design",
           "credits": 10,
           "isOptional": false
         },
         {
-          "displayName": "4002CEM Mathematics for Computer Science",
+          "code": "4002CEM",
+          "displayName": "Mathematics for Computer Science",
           "credits": 20,
           "isOptional": false
         },
         {
-          "displayName": "4003CEM Object Oriented Programming",
+          "code": "4003CEM",
+          "displayName": "Object Oriented Programming",
           "credits": 15,
           "isOptional": false
         },
         {
-          "displayName": "4004CEM Computer Architecture and Networks",
+          "code": "4004CEM",
+          "displayName": "Computer Architecture and Networks",
           "credits": 15,
           "isOptional": false
         },
         {
-          "displayName": "4005CEM Database Systems",
+          "code": "4005CEM",
+          "displayName": "Database Systems",
           "credits": 5,
           "isOptional": false
         },
         {
-          "displayName": "4006CEM Computer Science Activity Led Learning Project 1",
+          "code": "4006CEM",
+          "displayName": "Computer Science Activity Led Learning Project 1",
           "credits": 15,
           "isOptional": false
         },
         {
-          "displayName": "4006CEM Computer Science Activity Led Learning Project 2",
+          "code": "4011CEM",
+          "displayName": "Computer Science Activity Led Learning Project 2",
           "credits": 15,
           "isOptional": false
         },
         {
+          "code": "-",
           "displayName": "Add + vantage module",
           "credits": 10,
           "isOptional": false
@@ -57,41 +66,49 @@
       "year": "2",
       "modules": [
         {
-          "displayName": "5000CEM Introduction to Artificial Intelligence",
+          "code": "5000CEM",
+          "displayName": "Introduction to Artificial Intelligence",
           "credits": 10,
           "isOptional": false
         },
         {
-          "displayName": "5001CEM Software Engineering",
+          "code": "5001CEM",
+          "displayName": "Software Engineering",
           "credits": 20,
           "isOptional": false
         },
         {
-          "displayName": "5002CEM Theory of Computation",
+          "code": "5002CEM",
+          "displayName": "Theory of Computation",
           "credits": 20,
           "isOptional": false
         },
         {
-          "displayName": "5003CEM Advanced Algorithms",
+          "code": "5003CEM",
+          "displayName": "Advanced Algorithms",
           "credits": 15,
           "isOptional": false
         },
         {
-          "displayName": "5004CEM Operating Systems and Security",
+          "code": "5004CEM",
+          "displayName": "Operating Systems and Security",
           "credits": 20,
           "isOptional": false
         },
         {
-          "displayName": "5005CEM Data Science",
+          "code": "5005CEM",
+          "displayName": "Data Science",
           "credits": 10,
           "isOptional": false
         },
         {
-          "displayName": "5011CEM Big Data Programming Project",
+          "code": "5011CEM",
+          "displayName": "Big Data Programming Project",
           "credits": 15,
           "isOptional": false
         },
         {
+          "code": "-",
           "displayName": "Add + vantage module",
           "credits": 10,
           "isOptional": false
@@ -102,49 +119,58 @@
       "year": "3",
       "modules": [
         {
-          "displayName": "6000CEM Individual Project Preparation",
+          "code": "6000CEM",
+          "displayName": "Individual Project Preparation",
           "credits": 10,
           "isOptional": false,
           "mustInclude": true
         },
         {
-          "displayName": "6001CEM Individual Project",
+          "code": "6001CEM",
+          "displayName": "Individual Project",
           "credits": 20,
           "isOptional": false,
           "mustInclude": true
         },
         {
-          "displayName": "6005CEM Security",
+          "code": "6005CEM",
+          "displayName": "Security",
           "credits": 20,
           "isOptional": false
         },
         {
-          "displayName": "6006CEM Machine Learning and Related Applications",
+          "code": "6006CEM",
+          "displayName": "Machine Learning and Related Applications",
           "credits": 20,
           "isOptional": false
         },
         {
+          "code": "-",
           "displayName": "Add + vantage module",
           "credits": 10,
           "isOptional": false
         },
         {
-          "displayName": "6002CEM Mobile Application Development",
+          "code": "6002CEM",
+          "displayName": "Mobile Application Development",
           "credits": 20,
           "isOptional": true
         },
         {
-          "displayName": "6003CEM Web API Development",
+          "code": "6003CEM",
+          "displayName": "Web API Development",
           "credits": 20,
           "isOptional": true
         },
         {
-          "displayName": "6004CEM Parallel Distributed Programming",
+          "code": "6004CEM",
+          "displayName": "Parallel Distributed Programming",
           "credits": 20,
           "isOptional": true
         },
         {
-          "displayName": "6008CEM Advanced Programming Paradigms",
+          "code": "6008CEM",
+          "displayName": "Advanced Programming Paradigms",
           "credits": 20,
           "isOptional": true
         }

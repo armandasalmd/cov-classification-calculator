@@ -54,4 +54,17 @@ const templateConfig = {
   ],
 };
 
-export { templateConfig };
+const _filterModules = function (allModules, isOptional) {
+  const mandatoryModules = Array.isArray(allModules)
+    ? allModules.filter(function (module) {
+        return module.isOptional === isOptional;
+      })
+    : [];
+
+  return mandatoryModules;
+};
+
+const getMandatoryModules = (allModules) => _filterModules(allModules, false);
+const getOptionalModules = (allModules) => _filterModules(allModules, true);
+
+export { templateConfig, getMandatoryModules, getOptionalModules };

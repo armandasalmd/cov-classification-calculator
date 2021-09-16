@@ -6,7 +6,7 @@ export default function Header({ displayName }) {
       <Button href="/">
         <Icon icon="long-arrow-left" /> Go back home
       </Button>
-      <div>
+      <div style={{margin: "1.5rem 0"}}>
         <h3>Calculate {displayName} classification</h3>
         <p>Please enter the details to complete calculation</p>
       </div>
