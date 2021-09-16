@@ -1,8 +1,12 @@
 import GlobalUtils from "./global";
 
+const PASS_MINIMUM = 40;
+const DEFAULT_GRADE = PASS_MINIMUM + 5;
+
 const templateConfig = {
   creditsPerYear: 120,
-  passMinimum: 40,
+  passMinimum: PASS_MINIMUM,
+  defaultGrade: DEFAULT_GRADE,
   strategies: [
     {
       name: "Strategy 1 result (100/100/100)",
@@ -77,6 +81,7 @@ const initializeTabsState = function (originalTabs) {
 
         _ammendIsSelectedForOptionalModules(initializedTab);
         _ammendActiveCreditsValue(initializedTab);
+        _ammendDefaultGradeValue(initializedTab);
 
         return initializedTab;
       })
@@ -99,11 +104,34 @@ const initializeTabsState = function (originalTabs) {
       }
     });
   }
+
+  function _ammendDefaultGradeValue(tab) {
+    if (tab && Array.isArray(tab.modules)) {
+      tab.modules.map(function (module) {
+        module["grade"] = DEFAULT_GRADE;
+      });
+    }
+  }
 };
+
+const getTabAndModuleFromState = function (tabs, year, moduleCode) {
+  const tabItem = tabs.find(function (tab) {
+    return tab.year === year;
+  });
+
+  if (tabItem) {
+    var moduleItem = tabItem.modules.find(function (module) {
+      return module.code === moduleCode;
+    });
+  }
+
+  return [tabItem, moduleItem];
+}
 
 export {
   templateConfig,
   getMandatoryModules,
   getOptionalModules,
+  getTabAndModuleFromState,
   initializeTabsState,
 };

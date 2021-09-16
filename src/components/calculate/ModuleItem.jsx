@@ -1,6 +1,8 @@
 import { Checkbox, List, Tag, TagGroup } from "rsuite";
 import GradePicker from "./GradePicker";
 
+import { CHECK_MODULE, CHANGE_GRADE } from "/src/reducers/tabsReducer";
+
 function pickTagColor(year) {
   if (year === "1") {
     return "cyan";
@@ -11,8 +13,30 @@ function pickTagColor(year) {
   }
 }
 
-export default function ModuleItem({ module, year }) {
+export default function ModuleItem({ module, year, tabsDispatch }) {
 	const tagColor = pickTagColor(year);
+
+	function onCheckboxChange(_, checked) {
+		tabsDispatch({
+			type: CHECK_MODULE,
+			payload: {
+				year, 
+				code: module.code,
+				value: checked
+			}
+		});
+	}
+
+	function onGradeChange(value) {
+		tabsDispatch({
+			type: CHANGE_GRADE,
+			payload: {
+				year, 
+				code: module.code,
+				value
+			}
+		});
+	}
 
   return (
     <List.Item>
@@ -20,7 +44,7 @@ export default function ModuleItem({ module, year }) {
 				{ 
 					module.isOptional && 
 					<div style={{marginLeft: "0.5rem"}}>
-						<Checkbox />
+						<Checkbox checked={module.isSelected} onChange={onCheckboxChange} />
 					</div>
 				}
 				<div>
@@ -31,7 +55,7 @@ export default function ModuleItem({ module, year }) {
 						</TagGroup>
 						<p style={{marginBottom: "0.125rem", marginTop: "0"}}>{module.displayName}</p>
 					</div>
-					<GradePicker />
+					<GradePicker value={module.grade} onChange={onGradeChange} />
 				</div>
 			</div>
     </List.Item>

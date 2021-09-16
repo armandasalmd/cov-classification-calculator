@@ -1,18 +1,37 @@
 import { useState } from "react";
-import { Nav } from "rsuite";
+import { Nav, Icon } from "rsuite";
 
 import GradesPanel from "./GradesPanel";
+import { templateConfig } from "/src/utils/templates";
 
-function CreateNavItem(eventKey, text) {
-  return <Nav.Item key={eventKey} eventKey={eventKey}>{text}</Nav.Item>
+function isTabFailing(tab) {
+  return tab.activeCredits !== templateConfig.creditsPerYear;
 }
 
-export default function TabNavigation({tabsState, tabsDispatch}) {
+function CreateNavItem(eventKey, text, isFailing) {
+  return (
+    <Nav.Item
+      key={eventKey}
+      eventKey={eventKey}
+      icon={isFailing ? <Icon icon="exclamation-circle2" /> : undefined}
+    >
+      {text}
+    </Nav.Item>
+  );
+}
+
+export default function TabNavigation({ tabsState, tabsDispatch }) {
   const [active, setActive] = useState(tabsState[0].year);
 
-  const navItems = Array.isArray(tabsState) ? tabsState.map(function (item) {
-    return CreateNavItem(item.year, `Year ${item.year}`);
-  }) : [];
+  const navItems = Array.isArray(tabsState)
+    ? tabsState.map(function (item) {
+        return CreateNavItem(
+          item.year,
+          `Year ${item.year}`,
+          isTabFailing(item)
+        );
+      })
+    : [];
 
   function onSelect(activeKey) {
     setActive(activeKey);
@@ -23,7 +42,11 @@ export default function TabNavigation({tabsState, tabsDispatch}) {
       <Nav appearance="subtle" activeKey={active} onSelect={onSelect}>
         {navItems}
       </Nav>
-      <GradesPanel active={active} tabsState={tabsState} tabsDispatch={tabsDispatch} />
+      <GradesPanel
+        active={active}
+        tabsState={tabsState}
+        tabsDispatch={tabsDispatch}
+      />
     </div>
   );
 }

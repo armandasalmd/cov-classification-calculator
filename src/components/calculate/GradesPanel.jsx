@@ -6,20 +6,29 @@ import ModuleItem from "./ModuleItem";
 import CalculatorUtils from "/src/utils/calculator";
 import { templateConfig } from "/src/utils/templates";
 import { getMandatoryModules, getOptionalModules } from "/src/utils/templates";
+import { RESET_INPUT } from "/src/reducers/tabsReducer";
 
-function CreateMandatoryModules(allModules, year) {
+function CreateMandatoryModules(allModules, year, tabsDispatch) {
   return getMandatoryModules(allModules).map(function (module) {
-    return <ModuleItem module={module} key={module.code} year={year} />;
+    return <ModuleItem module={module} key={module.code} year={year} tabsDispatch={tabsDispatch} />;
   });
 }
 
-function CreatOptionalModules(allModules, year) {
+function CreatOptionalModules(allModules, year, tabsDispatch) {
   return getOptionalModules(allModules).map(function (module) {
-    return <ModuleItem module={module} key={module.code} year={year} />;
+    return <ModuleItem module={module} key={module.code} year={year} tabsDispatch={tabsDispatch} />;
   });
 }
 
-export default function GradesPanel({ active, tabsState }) {
+function isCalculateEnabled(tabsState) {
+  const failingTab = tabsState.find(function (tab) {
+    return tab.activeCredits !== templateConfig.creditsPerYear;
+  });
+
+  return failingTab === undefined;
+}
+
+export default function GradesPanel({ active, tabsState, tabsDispatch }) {
   const [result, setResult] = useState(null);
 
   const styles = {
@@ -36,22 +45,43 @@ export default function GradesPanel({ active, tabsState }) {
     setResult(CalculatorUtils.calculate(null));
   }
 
+  function onReset() {
+    tabsDispatch({
+      type: RESET_INPUT
+    });
+  }
+
   function closeResults() {
     setResult(null);
   }
 
-  const mandatoryItems = CreateMandatoryModules(modules, active);
-  const optionalItems = CreatOptionalModules(modules, active);
+  const mandatoryItems = CreateMandatoryModules(modules, active, tabsDispatch);
+  const optionalItems = CreatOptionalModules(modules, active, tabsDispatch);
+  const isCreditRequirementFulfilled =
+    activeCredits === templateConfig.creditsPerYear;
 
   return (
-    <div style={{marginBottom: "1rem"}}>
+    <div style={{ marginBottom: "1rem" }}>
       <Grid fluid style={styles}>
-        {
-          activeCredits < templateConfig.creditsPerYear &&
+        <Row style={{marginBottom: "1rem"}}>
+          <Button
+            appearance="primary"
+            color="green"
+            onClick={onCalculate}
+            disabled={!isCalculateEnabled(tabsState)}
+            style={{ float: "right" }}
+          >
+            <Icon icon="calculator" /> Calculate
+          </Button>
+          <Button style={{ float: "right", marginRight: "0.5rem" }} onClick={onReset}>
+            <Icon icon="reload" /> Reset
+          </Button>
+        </Row>
+        {!isCreditRequirementFulfilled && (
           <Row>
-            <Message type="error" description="Sum of credits 100/120" />
+            <Message type="error" description={`Sum of credits ${activeCredits}/${templateConfig.creditsPerYear}`} />
           </Row>
-        }
+        )}
         {mandatoryItems.length > 0 && (
           <Row style={{ margin: "1rem 0" }}>
             <h5>Mandatory modules</h5>
@@ -64,19 +94,6 @@ export default function GradesPanel({ active, tabsState }) {
             <List>{optionalItems}</List>
           </Row>
         )}
-        <Row>
-          <Button
-            appearance="primary"
-            color="green"
-            onClick={onCalculate}
-            style={{ float: "right" }}
-          >
-            <Icon icon="calculator" /> Calculate
-          </Button>
-          <Button style={{ float: "right", marginRight: "0.5rem" }}>
-            <Icon icon="reload" /> Reset
-          </Button>
-        </Row>
       </Grid>
       <ResultsModal
         show={!!result}
