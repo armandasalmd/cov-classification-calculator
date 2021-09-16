@@ -30,12 +30,6 @@
   color: var(--primary-color);
 }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
 .title {
   margin: 0;
   line-height: 1.15;
@@ -70,6 +64,7 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
 }
 
 .card:hover,
