@@ -1,5 +1,6 @@
 const calculatorUtils = {
-  calculate: function (data) {
+  calculate: function (tabsState) {
+    console.log(tabsState);
     return {
       success: true,
       score: 76.5,

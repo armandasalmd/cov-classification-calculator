@@ -10,7 +10,11 @@ export default function reducer(state, { type, payload }) {
 			const { year, code, value } = payload;
 			const [, module] = getTabAndModuleFromState(state, year, code);
 
-			module.grade = value;
+			try {
+				module.grade = parseInt(value);
+			} catch {
+				module.grade = templateConfig.defaultGrade;
+			}
 
 			return [
 				...state

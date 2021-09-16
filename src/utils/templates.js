@@ -1,7 +1,7 @@
 import GlobalUtils from "./global";
 
 const PASS_MINIMUM = 40;
-const DEFAULT_GRADE = PASS_MINIMUM + 5;
+const DEFAULT_GRADE = 50;
 
 const templateConfig = {
   creditsPerYear: 120,

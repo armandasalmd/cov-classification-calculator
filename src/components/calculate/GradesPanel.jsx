@@ -42,7 +42,7 @@ export default function GradesPanel({ active, tabsState, tabsDispatch }) {
   });
 
   function onCalculate() {
-    setResult(CalculatorUtils.calculate(null));
+    setResult(CalculatorUtils.calculate(tabsState));
   }
 
   function onReset() {
