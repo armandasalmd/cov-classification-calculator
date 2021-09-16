@@ -1,4 +1,7 @@
+import GlobalUtils from "./global";
+
 const templateConfig = {
+  creditsPerYear: 120,
   passMinimum: 40,
   strategies: [
     {
@@ -67,4 +70,40 @@ const _filterModules = function (allModules, isOptional) {
 const getMandatoryModules = (allModules) => _filterModules(allModules, false);
 const getOptionalModules = (allModules) => _filterModules(allModules, true);
 
-export { templateConfig, getMandatoryModules, getOptionalModules };
+const initializeTabsState = function (originalTabs) {
+  return Array.isArray(originalTabs)
+    ? originalTabs.map(function (tab) {
+        let initializedTab = GlobalUtils.deepClone(tab);
+
+        _ammendIsSelectedForOptionalModules(initializedTab);
+        _ammendActiveCreditsValue(initializedTab);
+
+        return initializedTab;
+      })
+    : [];
+
+  function _ammendActiveCreditsValue(tab) {
+    tab["activeCredits"] = tab.modules.reduce(function (total, module) {
+      if (module.isOptional === true && !!module["isSelected"] === false) {
+        return total;
+      } else {
+        return total + module.credits;
+      }
+    }, 0);
+  }
+
+  function _ammendIsSelectedForOptionalModules(tab) {
+    tab.modules.forEach(function (module) {
+      if (module.isOptional === true) {
+        module["isSelected"] = false;
+      }
+    });
+  }
+};
+
+export {
+  templateConfig,
+  getMandatoryModules,
+  getOptionalModules,
+  initializeTabsState,
+};

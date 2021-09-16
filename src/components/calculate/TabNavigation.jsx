@@ -7,12 +7,12 @@ function CreateNavItem(eventKey, text) {
   return <Nav.Item key={eventKey} eventKey={eventKey}>{text}</Nav.Item>
 }
 
-export default function TabNavigation(props) {
-  const [active, setActive] = useState(props.data[0].year);
+export default function TabNavigation({tabsState, tabsDispatch}) {
+  const [active, setActive] = useState(tabsState[0].year);
 
-  const navItems = props.data.map(function (item) {
+  const navItems = Array.isArray(tabsState) ? tabsState.map(function (item) {
     return CreateNavItem(item.year, `Year ${item.year}`);
-  });
+  }) : [];
 
   function onSelect(activeKey) {
     setActive(activeKey);
@@ -23,7 +23,7 @@ export default function TabNavigation(props) {
       <Nav appearance="subtle" activeKey={active} onSelect={onSelect}>
         {navItems}
       </Nav>
-      <GradesPanel active={active} data={props.data} />
+      <GradesPanel active={active} tabsState={tabsState} tabsDispatch={tabsDispatch} />
     </div>
   );
 }

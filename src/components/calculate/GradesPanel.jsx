@@ -4,6 +4,7 @@ import { Button, Icon, Grid, Row, Message, List } from "rsuite";
 import ResultsModal from "./ResultsModal";
 import ModuleItem from "./ModuleItem";
 import CalculatorUtils from "/src/utils/calculator";
+import { templateConfig } from "/src/utils/templates";
 import { getMandatoryModules, getOptionalModules } from "/src/utils/templates";
 
 function CreateMandatoryModules(allModules, year) {
@@ -18,8 +19,7 @@ function CreatOptionalModules(allModules, year) {
   });
 }
 
-export default function GradesPanel({ active, data }) {
-  const [resultsVisable, setResultsVisable] = useState(false);
+export default function GradesPanel({ active, tabsState }) {
   const [result, setResult] = useState(null);
 
   const styles = {
@@ -28,17 +28,15 @@ export default function GradesPanel({ active, data }) {
     boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
   };
 
-  const { modules } = data.find(function (dataItem) {
-    return dataItem.year === active;
+  const { modules, activeCredits } = tabsState.find(function (tab) {
+    return tab.year === active;
   });
 
   function onCalculate() {
-    setResultsVisable(true);
     setResult(CalculatorUtils.calculate(null));
   }
 
   function closeResults() {
-    setResultsVisable(false);
     setResult(null);
   }
 
@@ -46,11 +44,14 @@ export default function GradesPanel({ active, data }) {
   const optionalItems = CreatOptionalModules(modules, active);
 
   return (
-    <>
+    <div style={{marginBottom: "1rem"}}>
       <Grid fluid style={styles}>
-        <Row>
-          <Message type="error" description="Sum of credits 100/120" />
-        </Row>
+        {
+          activeCredits < templateConfig.creditsPerYear &&
+          <Row>
+            <Message type="error" description="Sum of credits 100/120" />
+          </Row>
+        }
         {mandatoryItems.length > 0 && (
           <Row style={{ margin: "1rem 0" }}>
             <h5>Mandatory modules</h5>
@@ -78,10 +79,10 @@ export default function GradesPanel({ active, data }) {
         </Row>
       </Grid>
       <ResultsModal
-        show={resultsVisable}
+        show={!!result}
         closeResults={closeResults}
         result={result}
       />
-    </>
+    </div>
   );
 }

@@ -1,10 +1,18 @@
+import { useReducer } from "react";
 import { templateConfig } from "/src/utils/templates";
 import RouteUtils from "/src/utils/route";
 import { Grid, Row } from "rsuite";
 
 import { Header, TabNavigation } from "/src/components/calculate";
+import { initializeTabsState } from "/src/utils/templates";
+import TabsReducer from "/src/reducers/tabsReducer";
 
 function Calculate(props) {
+  const [tabsState, tabsDispatch] = useReducer(
+    TabsReducer,
+    initializeTabsState(props.data)
+  );
+
   return (
     <div>
       <Grid fluid>
@@ -12,7 +20,11 @@ function Calculate(props) {
           <Header displayName={props.displayName} />
         </Row>
         <Row>
-          <TabNavigation {...props} />
+          <TabNavigation
+            tabsState={tabsState}
+            tabsDispatch={tabsDispatch}
+            {...props}
+          />
         </Row>
       </Grid>
 
