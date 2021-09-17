@@ -110,7 +110,7 @@
           "displayName": "Individual Project",
           "credits": 30,
           "isOptional": false,
-          "mustInclude": true
+          "isRequired": true
         },
         {
           "code": "340CT",

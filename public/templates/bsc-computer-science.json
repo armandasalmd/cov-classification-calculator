@@ -122,14 +122,14 @@
           "displayName": "Individual Project Preparation",
           "credits": 10,
           "isOptional": false,
-          "mustInclude": true
+          "isRequired": true
         },
         {
           "code": "6001CEM",
           "displayName": "Individual Project",
           "credits": 20,
           "isOptional": false,
-          "mustInclude": true
+          "isRequired": true
         },
         {
           "code": "6005CEM",

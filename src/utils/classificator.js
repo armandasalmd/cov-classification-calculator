@@ -1,11 +1,19 @@
 import GlobalUtils from "./global";
 
 const classificator = (function () {
-  // function _get_required_modules(modules) {
-  //   return modules.filter(function (module) {
-  //     return module.mustInclude === true;
-  //   });
-  // }
+  function _getRequiredAndRestModules(modules) {
+    let requiredModules = [], restModules = [];
+
+    for (let module of modules) {
+      if (module.isRequired === true) {
+        requiredModules.push(module);
+      } else {
+        restModules.push(module);
+      }
+    }
+
+    return [requiredModules, restModules];
+  }
 
   function _calculateWeightedAverage(modules) {
     let totalCredits = modules.reduce(function (total, module) {
@@ -64,9 +72,16 @@ const classificator = (function () {
 
     for (let component of strategy.components) {
       let yearData = _findYear(state, component.year);
+
+      let [requiredModules, restModules] = _getRequiredAndRestModules(yearData.modules);
+
+      let requiredModulesCredits = requiredModules.reduce(function (total, module) {
+        return total + module.credits;
+      }, 0);
+
       let modulesToAdd = _getBestModuleCombination(
-        yearData.modules,
-        component.credits
+        restModules,
+        component.credits - requiredModulesCredits
       );
 
       modulesToAverage.push(modulesToAdd);
