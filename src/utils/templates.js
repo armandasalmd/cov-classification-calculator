@@ -58,11 +58,6 @@ const templateConfig = {
       description: "Calculate Computer Science classification",
       key: "bsc-computer-science",
     },
-    {
-      displayName: "Bsc Computer Science (Matthew Chivers)",
-      description: "Original Python classification module template",
-      key: "bsc-computer-science-matthewchivers",
-    },
   ],
 };
 

@@ -48,7 +48,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const res = await fetch(
     RouteUtils.buildAbsoluteUrl(`/templates/${params.id}.json`)
-  );
+    );
   const template = await res.json();
 
   return {
