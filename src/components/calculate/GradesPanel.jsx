@@ -113,15 +113,15 @@ export default function GradesPanel({ active, pageId, tabsState, tabsDispatch })
             <Icon icon="export" /> Load grades
           </Button>
         </Row>
-        {!isCreditRequirementFulfilled && (
-          <Row>
-            <Message type="error" title={`Used module credits: ${activeCredits} (${templateConfig.creditsPerYear} are required)`} description="Select some optional modules to update credits count" />
-          </Row>
-        )}
         {mandatoryItems.length > 0 && (
           <Row style={{ margin: "1rem 0" }}>
             <h5>Mandatory modules</h5>
             <List>{mandatoryItems}</List>
+          </Row>
+        )}
+        {!isCreditRequirementFulfilled && (
+          <Row>
+            <Message type="error" title={`Used module credits: ${activeCredits} (${templateConfig.creditsPerYear} are required)`} description="Select some optional modules to update credits count" />
           </Row>
         )}
         {optionalItems.length > 0 && (
