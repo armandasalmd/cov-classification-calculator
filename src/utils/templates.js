@@ -63,11 +63,7 @@ const templateConfig = {
       description: "Original Python classification module template",
       key: "bsc-computer-science-matthew",
     },
-    {
-      displayName: "BA Digital Marketing",
-      description: "Calculate Digital Marketing classification (2021)",
-      key: "ba-digital-marketing",
-    },
+    
   ],
 };
 
