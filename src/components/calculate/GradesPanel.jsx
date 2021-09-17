@@ -79,7 +79,7 @@ export default function GradesPanel({ active, tabsState, tabsDispatch }) {
         </Row>
         {!isCreditRequirementFulfilled && (
           <Row>
-            <Message type="error" description={`Sum of credits ${activeCredits}/${templateConfig.creditsPerYear}`} />
+            <Message type="error" title={`Used module credits: ${activeCredits} (${templateConfig.creditsPerYear} are required)`} description="Select some optional modules to update credits count" />
           </Row>
         )}
         {mandatoryItems.length > 0 && (
