@@ -21,6 +21,7 @@ function Calculate(props) {
         </Row>
         <Row>
           <TabNavigation
+            pageId={props.id}
             tabsState={tabsState}
             tabsDispatch={tabsDispatch}
             {...props}

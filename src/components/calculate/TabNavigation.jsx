@@ -20,7 +20,7 @@ function CreateNavItem(eventKey, text, isFailing) {
   );
 }
 
-export default function TabNavigation({ tabsState, tabsDispatch }) {
+export default function TabNavigation({ tabsState, tabsDispatch, pageId }) {
   const [active, setActive] = useState(tabsState[0].year);
 
   const navItems = Array.isArray(tabsState)
@@ -44,6 +44,7 @@ export default function TabNavigation({ tabsState, tabsDispatch }) {
       </Nav>
       <GradesPanel
         active={active}
+        pageId={pageId}
         tabsState={tabsState}
         tabsDispatch={tabsDispatch}
       />

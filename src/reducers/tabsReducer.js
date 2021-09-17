@@ -3,6 +3,7 @@ import { templateConfig, getTabAndModuleFromState } from "/src/utils/templates";
 export const CHANGE_GRADE = "CHANGE_GRADE";
 export const CHECK_MODULE = "CHECK_MODULE";
 export const RESET_INPUT = "RESET_INPUT";
+export const OVERRIDE_STATE = "OVERRIDE_STATE";
 
 export default function reducer(state, { type, payload }) {
 	switch (type) {
@@ -51,6 +52,8 @@ export default function reducer(state, { type, payload }) {
 			return [
 				...state
 			];
+		case OVERRIDE_STATE:
+			return payload;
 		default:
 			throw new Error();
 	}

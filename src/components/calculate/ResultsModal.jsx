@@ -1,4 +1,4 @@
-import { Modal, Message, List, Paragraph, Button } from "rsuite";
+import { Modal, Message, List, Button } from "rsuite";
 
 function CreateMessage(result) {
   if (result.success) {

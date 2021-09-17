@@ -76,7 +76,7 @@ export default function ModuleItem({ module, year, tabsDispatch }) {
 									<Button
 										size="xs"
 										appearance="subtle"
-										style={{ color: "#f59700", marginLeft: "0.5rem" }}
+										style={{ color: "#3498ff", marginLeft: "0.5rem" }}
 									>
 										<Icon icon="info" />
 									</Button>

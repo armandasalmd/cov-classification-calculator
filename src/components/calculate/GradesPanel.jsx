@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Button, Icon, Grid, Row, Message, List } from "rsuite";
+import { Alert, Button, Icon, Grid, Row, Message, List, Whisper, Tooltip } from "rsuite";
 
 import ResultsModal from "./ResultsModal";
 import ModuleItem from "./ModuleItem";
+import SaveUtils from "/src/utils/save";
 import CalculatorUtils from "/src/utils/calculator";
-import { templateConfig } from "/src/utils/templates";
-import { getMandatoryModules, getOptionalModules } from "/src/utils/templates";
-import { RESET_INPUT } from "/src/reducers/tabsReducer";
+import { templateConfig, getMandatoryModules, getOptionalModules } from "/src/utils/templates";
+import { RESET_INPUT, OVERRIDE_STATE } from "/src/reducers/tabsReducer";
 
 function CreateMandatoryModules(allModules, year, tabsDispatch) {
   return getMandatoryModules(allModules).map(function (module) {
@@ -28,8 +28,10 @@ function isCalculateEnabled(tabsState) {
   return failingTab === undefined;
 }
 
-export default function GradesPanel({ active, tabsState, tabsDispatch }) {
+export default function GradesPanel({ active, pageId, tabsState, tabsDispatch }) {
   const [result, setResult] = useState(null);
+  const [loadDisabled, setLoadDisabled] = useState(false);
+  const [saveDisabled, setSaveDisabled] = useState(false);
 
   const styles = {
     marginTop: "0.5rem",
@@ -49,6 +51,32 @@ export default function GradesPanel({ active, tabsState, tabsDispatch }) {
     tabsDispatch({
       type: RESET_INPUT
     });
+  }
+
+  function onSave() {
+    setSaveDisabled(true);
+
+    SaveUtils.save(tabsState, pageId);
+    Alert.success("Successfully saved your input data", 5000);
+    setTimeout(() => setSaveDisabled(false), 5000);
+  }
+  
+  function onLoad() {
+    setLoadDisabled(true);
+
+    let loadedTabsState = SaveUtils.load(pageId);
+    
+    if (Array.isArray(loadedTabsState)) {
+      tabsDispatch({
+        type: OVERRIDE_STATE,
+        payload: loadedTabsState
+      });
+      Alert.success("Successfully loaded your data", 5000);
+    } else {
+      Alert.error("Malformatted data was saved in memory!", 5000);
+    }
+
+    setTimeout(() => setLoadDisabled(false), 5000);
   }
 
   function closeResults() {
@@ -75,6 +103,14 @@ export default function GradesPanel({ active, tabsState, tabsDispatch }) {
           </Button>
           <Button style={{ float: "right", marginRight: "0.5rem" }} onClick={onReset}>
             <Icon icon="reload" /> Reset
+          </Button>
+          <Whisper placement="top" trigger="hover" speaker={<Tooltip>Optional. This saves input data for later use</Tooltip>}>
+            <Button disabled={saveDisabled} style={{ float: "right", marginRight: "0.5rem" }} onClick={onSave}>
+              <Icon icon="save" /> Save grades
+            </Button>
+          </Whisper>
+          <Button disabled={loadDisabled} style={{ float: "right", marginRight: "0.5rem" }} onClick={onLoad}>
+            <Icon icon="export" /> Load grades
           </Button>
         </Row>
         {!isCreditRequirementFulfilled && (
