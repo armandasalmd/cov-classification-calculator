@@ -61,7 +61,7 @@ export default function GradesPanel({ active, tabsState, tabsDispatch }) {
     activeCredits === templateConfig.creditsPerYear;
 
   return (
-    <div style={{ marginBottom: "1rem" }}>
+    <div style={{ marginBottom: "4rem" }}>
       <Grid fluid style={styles}>
         <Row style={{marginBottom: "1rem"}}>
           <Button

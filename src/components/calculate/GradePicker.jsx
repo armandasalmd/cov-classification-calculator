@@ -1,4 +1,4 @@
-import { InputNumber } from "rsuite";
+import { InputNumber, Slider } from "rsuite";
 
 import { templateConfig } from "/src/utils/templates";
 
@@ -16,6 +16,8 @@ export default function GradePicker({value, onChange}) {
         value={value}
 				style={{width: "7rem"}}
       />
+      <p style={{margin: "0 1rem"}}>or</p>
+      <Slider value={value} onChange={onChange} style={{width: "18rem"}} />
     </div>
   );
 }

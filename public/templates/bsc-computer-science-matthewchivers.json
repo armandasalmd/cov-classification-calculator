@@ -1,0 +1,148 @@
+{
+  "displayName": "Bsc Computer Science (Matthew Chivers)",
+  "key": "bsc-computer-science-matthewchivers",
+  "data": [
+    {
+      "year": "1",
+      "modules": [
+        {
+          "code": "104KM",
+          "displayName": "Enterprise Information Systems",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "106CR",
+          "displayName": "Designing for Usability 1",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "120CT",
+          "displayName": "Computer Architecture and Networks",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "121COM",
+          "displayName": "Introduction to Computing",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "122COM",
+          "displayName": "Introduction to Algorithms",
+          "credits": 10,
+          "isOptional": false
+        },
+        {
+          "code": "124MS",
+          "displayName": "Logic and Sets",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "Add+",
+          "displayName": "Add+Vantage",
+          "credits": 10,
+          "isOptional": false
+        }
+      ]
+    },
+    {
+      "year": "2",
+      "modules": [
+        {
+          "code": "250EC",
+          "displayName": "Placement",
+          "credits": 40,
+          "isOptional": true
+        },
+        {
+          "code": "206CDE",
+          "displayName": "Real World Project",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "207SE",
+          "displayName": "Operating Systems, Security and Networks",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "210CT",
+          "displayName": "Programming, Algorithms and Data Structures",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "220CT",
+          "displayName": "Data and Information Retrieval",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "260CT",
+          "displayName": "Software Engineering",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "290COM",
+          "displayName": "Technology and its Social, Legal and Ethical Context",
+          "credits": 10,
+          "isOptional": false
+        },
+        {
+          "code": "Add+",
+          "displayName": "Add+vantage",
+          "credits": 10,
+          "isOptional": false
+        }
+      ]
+    },
+    {
+      "year": "3",
+      "modules": [
+        {
+          "code": "303COM",
+          "displayName": "Individual Project",
+          "credits": 30,
+          "isOptional": false,
+          "mustInclude": true
+        },
+        {
+          "code": "340CT",
+          "displayName": "Software Quality and Process Management",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "Add+",
+          "displayName": "Add+Vantage",
+          "credits": 10,
+          "isOptional": false
+        },
+        {
+          "code": "380CT",
+          "displayName": "Theoretical Aspects of Computer Science",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "303CEM",
+          "displayName": "Optional Module 1",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "370CT",
+          "displayName": "Optional Module 2",
+          "credits": 20,
+          "isOptional": false
+        }
+      ]
+    }
+  ]
+}

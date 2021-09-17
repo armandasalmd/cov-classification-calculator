@@ -5,22 +5,22 @@ const DEFAULT_GRADE = 50;
 
 const templateConfig = {
   creditsPerYear: 120,
-  passMinimum: PASS_MINIMUM,
   defaultGrade: DEFAULT_GRADE,
+  passMinimum: PASS_MINIMUM,
   strategies: [
     {
       name: "Strategy 1 result (100/100/100)",
       components: [
         {
-          year: 1,
+          year: "1",
           credits: 100,
         },
         {
-          year: 2,
+          year: "2",
           credits: 100,
         },
         {
-          year: 3,
+          year: "3",
           credits: 100,
         },
       ],
@@ -29,11 +29,11 @@ const templateConfig = {
       name: "Strategy 2 result (0/100/120)",
       components: [
         {
-          year: 2,
+          year: "2",
           credits: 100,
         },
         {
-          year: 3,
+          year: "3",
           credits: 120,
         },
       ],
@@ -42,11 +42,11 @@ const templateConfig = {
       name: "Strategy 3 result (0/120/100)",
       components: [
         {
-          year: 2,
+          year: "2",
           credits: 120,
         },
         {
-          year: 3,
+          year: "3",
           credits: 100,
         },
       ],
@@ -54,9 +54,14 @@ const templateConfig = {
   ],
   templates: [
     {
-      displayName: "Bsc Computer Science",
+      displayName: "Bsc Computer Science (2021)",
       description: "Calculate Computer Science classification",
       key: "bsc-computer-science",
+    },
+    {
+      displayName: "Bsc Computer Science (Matthew Chivers)",
+      description: "Original Python classification module template",
+      key: "bsc-computer-science-matthewchivers",
     },
   ],
 };
