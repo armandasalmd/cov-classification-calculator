@@ -1,0 +1,154 @@
+{
+  "displayName": "BA Digital Marketing",
+  "key": "ba-digital-marketing",
+  "data": [
+    {
+      "year": "1",
+      "modules": [
+        {
+          "code": "4001MKT",
+          "displayName": "Employment and academic skills",
+          "credits": 10,
+          "isOptional": false
+        },
+        {
+          "code": "4006MKT",
+          "displayName": "Marketing Research & Data Analysis",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "4002MKT",
+          "displayName": "Marketing Principles and Practice",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "4016MKT",
+          "displayName": "Organising For Business",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "4005MKT",
+          "displayName": "Introduction to Digital Marketing",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "4004MKT",
+          "displayName": "Introduction to Integrated Marketing Communications",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "-",
+          "displayName": "Add + vantage module",
+          "credits": 10,
+          "isOptional": false
+        }
+      ]
+    },
+    {
+      "year": "2",
+      "modules": [
+        {
+          "code": "5005MKT",
+          "displayName": "Career Preparation",
+          "credits": 10,
+          "isOptional": false
+        },
+        {
+          "code": "5010MKT",
+          "displayName": "Marketing Management",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "5006MKT",
+          "displayName": "Consumer Behaviour",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "5008MKT",
+          "displayName": "Digital Analytics",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "5012MKT",
+          "displayName": "Applied Advertising and Campaign Management",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "5013MKT",
+          "displayName": "Designing Online Presence",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "-",
+          "displayName": "Add + vantage module",
+          "credits": 10,
+          "isOptional": false
+        }
+      ]
+    },
+    {
+      "year": "3",
+      "modules": [
+        {
+          "code": "6005MKT",
+          "displayName": "Career Development",
+          "credits": 10,
+          "isOptional": false
+        },
+        {
+          "code": "6013MKT",
+          "displayName": "E-CRM and Strategy",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "6016MKT",
+          "displayName": "Contemporary Marketing Issues",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "6015MKT",
+          "displayName": "Social Media and Online Reputation",
+          "credits": 20,
+          "isOptional": false
+        },
+				{
+					"code": "6000SMM",
+					"displayName": "Project",
+					"credits": 20,
+					"isOptional": false,
+					"isRequired": true
+				},
+        {
+          "code": "-",
+          "displayName": "Add + vantage module",
+          "credits": 10,
+          "isOptional": false
+        },
+        {
+          "code": "6017MKT",
+          "displayName": "Creative Advertising Development",
+          "credits": 20,
+          "isOptional": true
+        },
+        {
+          "code": "6020MKT",
+          "displayName": "Enterprise and Enterpreneurship",
+          "credits": 20,
+          "isOptional": true
+        }
+      ]
+    }
+  ]
+}
