@@ -15,7 +15,7 @@ function CourseCard({ displayName, description, id }) {
 
 export default function Home() {
   const courseTemplates = templateConfig.templates.map(function (template) {
-    return <CourseCard {...template} id={template.key} />;
+    return <CourseCard key={template.key} {...template} id={template.key} />;
   });
 
   return (
@@ -39,7 +39,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        <p>Disclaimer! This calculator has not been officially verified as accurate against Coventry University's internal systems. However, it does follow the algorithms correctly (to the best of our knowledge).</p>
+        <p>Disclaimer! This calculator has not been officially verified as accurate against Coventry University&apos;s internal systems. However, it does follow the algorithms correctly (to the best of our knowledge).</p>
         <p>by Armandas Barkauskas</p>
       </footer>
     </div>
