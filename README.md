@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Unofficial Coventry Clissification Calculator
 
-## Getting Started
+Enter your module grades for each year and calculate final grade on your diploma using this app here: https://cov-classification-calculator.vercel.app
 
-First, run the development server:
+**Disclaimer**
+This calculator has not been officially verified as accurate against Coventry University's internal systems. However, it does follow the algorithms correctly (to the best of our knowledge).
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Add new course template
+1. Fork git repo
+2. Create `.json` file with course name in `/public/templates/{name}.json`
+	> For `{template-id}.json` file structure please refer any other template
+3. Update `/utils/templates.js` `templateConfig.templates` list
+	```js
+	{
+		displayName: "{Course name}",
+		description: "{Course description}",
+		key: "{File name without .json}",
+	}
+	```
+4. You now should be able to see template in menu and use it for calculation
+5. Create Pull Request to production branch
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Calculation strategies
+**There are 3 strategies** that are included in final grade calculation. Calculation process evaluates all of them and then takes the best score to show your final classification/grade. 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+> P.S. Strategies can be configured in `/utils/templates.js` 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+1. First strategy includes top 100 worth of module credits from all 3 years
+	- Top *100 credits* from Year 1
+	- Top *100 credits* from Year 2
+	- Top *100 credits* from Year 3
+2. Second strategy includes top 100 worth of module credits from year 2 and 120 credits from year 3
+	- Top *100 credits* from Year 2
+	- All *120 credits* from Year 3
+3. Third strategy includes top 120 worth of module credits from year 2 and 100 credits from year 3
+	- All *120 credits* from Year 2
+	- Top *100 credits* from Year 3 **_where some modules are mandatory included (i.e. Dissertation project)_**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Contribute to this project
+If you spotted any issue, please raise it under issues tab. You can fork, and create Pull Requests if you made any improvement.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+##### Run the app
+1. Clone/Fork git repo
+2. Terminal: `yarn install` or `yarn`
+3. Terminal: `yarn dev`
+4. Open [http://localhost:3000](http://localhost:3000)
+5. Create PR to production branch
