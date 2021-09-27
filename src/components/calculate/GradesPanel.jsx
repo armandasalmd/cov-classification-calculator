@@ -92,26 +92,28 @@ export default function GradesPanel({ active, pageId, tabsState, tabsDispatch })
     <div style={{ marginBottom: "4rem" }}>
       <Grid fluid style={styles}>
         <Row style={{marginBottom: "1rem"}}>
-          <Button
-            appearance="primary"
-            color="green"
-            onClick={onCalculate}
-            disabled={!isCalculateEnabled(tabsState)}
-            style={{ float: "right" }}
-          >
-            <Icon icon="calculator" /> Calculate
-          </Button>
-          <Button style={{ float: "right", marginRight: "0.5rem" }} onClick={onReset}>
-            <Icon icon="reload" /> Reset
-          </Button>
-          <Whisper placement="top" trigger="hover" speaker={<Tooltip>Optional. This saves input data for later use</Tooltip>}>
-            <Button disabled={saveDisabled} style={{ float: "right", marginRight: "0.5rem" }} onClick={onSave}>
-              <Icon icon="save" /> Save grades
+          <div className="button-container">
+            <Button
+              appearance="primary"
+              color="green"
+              onClick={onCalculate}
+              disabled={!isCalculateEnabled(tabsState)}
+              style={{ float: "right" }}
+            >
+              <Icon icon="calculator" /> Calculate
             </Button>
-          </Whisper>
-          <Button disabled={loadDisabled} style={{ float: "right", marginRight: "0.5rem" }} onClick={onLoad}>
-            <Icon icon="export" /> Load grades
-          </Button>
+            <Button onClick={onReset}>
+              <Icon icon="reload" /> Reset
+            </Button>
+            <Whisper placement="top" trigger="hover" speaker={<Tooltip>Optional. This saves input data for later use</Tooltip>}>
+              <Button disabled={saveDisabled} onClick={onSave}>
+                <Icon icon="save" /> Save grades
+              </Button>
+            </Whisper>
+            <Button disabled={loadDisabled} onClick={onLoad}>
+              <Icon icon="export" /> Load grades
+            </Button>
+          </div>
         </Row>
         {mandatoryItems.length > 0 && (
           <Row style={{ margin: "1rem 0" }}>
@@ -136,6 +138,15 @@ export default function GradesPanel({ active, pageId, tabsState, tabsDispatch })
         closeResults={closeResults}
         result={result}
       />
+
+      <style jsx>{`
+        .button-container {
+          display: flex;
+          justify-content: end;
+          gap: .5rem;
+          flex-wrap: wrap;
+        }
+      `}</style>
     </div>
   );
 }

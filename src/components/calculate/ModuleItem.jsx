@@ -49,14 +49,12 @@ export default function ModuleItem({ module, year, tabsDispatch }) {
 
   return (
     <List.Item>
-      <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+      <div className="module-container">
         {module.isOptional && (
-          <div style={{ marginLeft: "0.5rem" }}>
             <Checkbox checked={module.isSelected} onChange={onCheckboxChange} />
-          </div>
         )}
         <div>
-          <div style={{ display: "flex", gap: "1rem" }}>
+          <div style={{ display: "flex", gap: ".5rem", flexWrap: "wrap" }}>
             <TagGroup>
               <Tag color={tagColor}>{module.code}</Tag>
               <Tag>{module.credits} credits</Tag>
@@ -87,6 +85,20 @@ export default function ModuleItem({ module, year, tabsDispatch }) {
           <GradePicker value={module.grade} onChange={onGradeChange} />
         </div>
       </div>
+
+      <style jsx>{`
+        .module-container {
+          display: flex;
+          align-items: center;
+          gap: 1rem
+        }
+
+        @media (max-width: 1000px) {
+          .module-container {
+            gap: 0;
+          }
+        }
+      `}</style>
     </List.Item>
   );
 }

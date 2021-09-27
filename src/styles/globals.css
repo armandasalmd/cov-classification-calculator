@@ -18,3 +18,10 @@ a {
 :root {
   --primary-color: #369446;
 }
+
+/* Warning: React Suite UI Overrides */
+@media (max-width: 600px) {
+  .rs-modal-sm {
+    width: initial !important;
+  }
+}

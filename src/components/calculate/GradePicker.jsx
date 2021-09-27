@@ -10,14 +10,24 @@ export default function GradePicker({value, onChange}) {
         postfix="%"
         min={1}
         max={100}
-				size="sm"
+        size="sm"
         onChange={onChange}
         defaultValue={templateConfig.passMinimum}
         value={value}
-				style={{width: "7rem"}}
+        style={{width: "7rem"}}
       />
-      <p style={{margin: "0 1rem"}}>or</p>
-      <Slider value={value} onChange={onChange} style={{width: "18rem"}} />
+      <div id="slider-container" style={{display: "flex", alignItems: "center"}}>
+        <p style={{margin: "0 1rem"}}>or</p>
+        <Slider value={value} onChange={onChange} style={{width: "18rem"}} />
+      </div>
+
+      <style jsx>{`
+        @media (max-width: 1000px) {
+          #slider-container {
+            display: none !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

@@ -33,6 +33,12 @@ function Calculate(props) {
         div {
           margin: 3rem 20% 0 20%;
         }
+
+        @media (max-width: 1000px) {
+          div {
+            margin: 3rem 12px 0 12px;
+          }
+        }
       `}</style>
     </div>
   );
