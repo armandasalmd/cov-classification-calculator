@@ -1,9 +1,12 @@
-## Unofficial Coventry Clissification Calculator
+## Unofficial Coventry Classification Calculator
 
 Enter your module grades for each year and calculate final grade on your diploma using this app here: https://cov-classification-calculator.vercel.app
 
 **Disclaimer**
 This calculator has not been officially verified as accurate against Coventry University's internal systems. However, it does follow the algorithms correctly (to the best of our knowledge).
+
+**Inspired by**
+https://github.com/matthewchivers/coventry-university-classification-calculator
 
 ## Add new course template
 1. Fork git repo
