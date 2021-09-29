@@ -32,6 +32,7 @@ export default function GradesPanel({ active, pageId, tabsState, tabsDispatch })
   const [result, setResult] = useState(null);
   const [loadDisabled, setLoadDisabled] = useState(false);
   const [saveDisabled, setSaveDisabled] = useState(false);
+  const [calculating, setCalculating] = useState(false);
 
   const styles = {
     marginTop: "0.5rem",
@@ -44,7 +45,24 @@ export default function GradesPanel({ active, pageId, tabsState, tabsDispatch })
   });
 
   function onCalculate() {
-    setResult(CalculatorUtils.calculate(tabsState));
+    setCalculating(true);
+
+    // CalculatorUtils.calculate(tabsState)
+    setResult(async () => {
+      let calculation = new Promise(function(resolve, reject) {
+        resolve(CalculatorUtils.calculate(tabsState));
+      });
+  
+      calculation.then(function (calculationResult) {
+        return calculationResult;
+      }).finally(function () {
+        setCalculating(false);
+      });
+
+    });
+    // setCalculating(false);
+    // setTimeout(function () {
+    // });
   }
 
   function onReset() {
@@ -99,6 +117,7 @@ export default function GradesPanel({ active, pageId, tabsState, tabsDispatch })
               onClick={onCalculate}
               disabled={!isCalculateEnabled(tabsState)}
               style={{ float: "right" }}
+              loading={calculating}
             >
               <Icon icon="calculator" /> Calculate
             </Button>
