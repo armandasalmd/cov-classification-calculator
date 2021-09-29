@@ -84,6 +84,7 @@ const classificator = (function () {
         component.credits - requiredModulesCredits
       );
 
+      modulesToAverage.push(requiredModules);
       modulesToAverage.push(modulesToAdd);
     }
 
