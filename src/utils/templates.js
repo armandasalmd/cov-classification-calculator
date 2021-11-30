@@ -39,17 +39,8 @@ const templateConfig = {
       ],
     },
     {
-      name: "Strategy 3 result (0/120/100)",
-      components: [
-        {
-          year: "2",
-          credits: 120,
-        },
-        {
-          year: "3",
-          credits: 100,
-        },
-      ],
+      name: "Strategy 3 result (Top 340 credits from any level)",
+      anyLevelCredits: 340
     },
   ],
   templates: [
