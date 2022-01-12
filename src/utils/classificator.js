@@ -122,6 +122,7 @@ const classificator = (function () {
         binCreditCount += module.credits;
         modulesBin.push(module);
       } else {
+        sortedModules.push(module);
         break;
       }
     }
