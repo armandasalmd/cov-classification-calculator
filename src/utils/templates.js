@@ -59,6 +59,11 @@ const templateConfig = {
       description: "Calculate Digital Marketing classification (2021)",
       key: "ba-digital-marketing",
     },
+    {
+      displayName: "Bsc Computing (2021)",
+      description: "Calculate Computing classification",
+      key: "bsc-computing",
+    },
   ],
 };
 
