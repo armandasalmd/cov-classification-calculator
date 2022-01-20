@@ -1,0 +1,173 @@
+{
+  "displayName": "Bsc Computing",
+  "id": "bsc-computing",
+  "data": [
+    {
+      "year": "1",
+      "modules": [
+        {
+          "code": "4000CEM",
+          "displayName": "Programming and Algorithms",
+          "credits": 15,
+          "isOptional": false
+        },
+        {
+          "code": "4001CEM",
+          "displayName": "Software Design",
+          "credits": 10,
+          "isOptional": false
+        },
+        {
+          "code": "4002CEM",
+          "displayName": "Mathematics for Computer Science",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "4003CEM",
+          "displayName": "Object Oriented Programming",
+          "credits": 15,
+          "isOptional": false
+        },
+        {
+          "code": "4004CEM",
+          "displayName": "Computer Architecture and Networks",
+          "credits": 15,
+          "isOptional": false
+        },
+        {
+          "code": "4005CEM",
+          "displayName": "Database Systems",
+          "credits": 5,
+          "isOptional": false
+        },
+        {
+          "code": "4006CEM",
+          "displayName": "Computer Science Activity Led Learning Project 1",
+          "credits": 15,
+          "isOptional": false
+        },
+        {
+          "code": "4011CEM",
+          "displayName": "Computer Science Activity Led Learning Project 2",
+          "credits": 15,
+          "isOptional": false
+        },
+        {
+          "code": "-",
+          "displayName": "Add + vantage module",
+          "credits": 10,
+          "isOptional": false
+        }
+      ]
+    },
+    {
+      "year": "2",
+      "modules": [
+        {
+          "code": "5006CEM",
+          "displayName": "People and Computing",
+          "credits": 10,
+          "isOptional": false
+        },
+        {
+          "code": "5007CEM",
+          "displayName": "Web Development",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "5008CEM",
+          "displayName": "Programming For Developers",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "5009CEM",
+          "displayName": "Software Development",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "5010CEM",
+          "displayName": "Enterprise Project",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "5014CEM",
+          "displayName": "Data Science for Developers",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "-",
+          "displayName": "Add + vantage module",
+          "credits": 10,
+          "isOptional": false
+        }
+      ]
+    },
+    {
+      "year": "3",
+      "modules": [
+        {
+          "code": "6000CEM",
+          "displayName": "Individual Project Preparation",
+          "credits": 10,
+          "isOptional": false,
+          "isRequired": true
+        },
+        {
+          "code": "6001CEM",
+          "displayName": "Individual Project",
+          "credits": 20,
+          "isOptional": false,
+          "isRequired": true
+        },
+        {
+          "code": "6005CEM",
+          "displayName": "Security",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "6012CEM",
+          "displayName": "User Experience Design",
+          "credits": 20,
+          "isOptional": false
+        },
+        {
+          "code": "-",
+          "displayName": "Add + vantage module",
+          "credits": 10,
+          "isOptional": false
+        },
+        {
+          "code": "6002CEM",
+          "displayName": "Mobile Application Development",
+          "credits": 20,
+          "isOptional": true
+        },
+        {
+          "code": "6003CEM",
+          "displayName": "Web API Development",
+          "credits": 20,
+          "isOptional": true
+        },
+        {
+          "code": "6004CEM",
+          "displayName": "Parallel Distributed Programming",
+          "credits": 20,
+          "isOptional": true
+        },
+        {
+          "code": "6008CEM",
+          "displayName": "Advanced Programming Paradigms",
+          "credits": 20,
+          "isOptional": true
+        }
+      ]
+    }
+  ]
+}
