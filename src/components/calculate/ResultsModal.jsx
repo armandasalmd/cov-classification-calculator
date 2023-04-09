@@ -1,5 +1,4 @@
 import { Modal, Message, List, Button } from "rsuite";
-import { Disclaimer } from "../Disclaimer";
 
 function CreateMessage(result) {
   if (result.success) {
@@ -49,7 +48,6 @@ export default function ResultsModal({ show, closeResults, result }) {
           <p style={{ marginTop: "1rem" }}>More details</p>
         )}
         {result != null && result.success && CreateMoreDetailsList(result)}
-        <p style={{ marginTop: "1rem" }}><Disclaimer asMessage /></p>
       </Modal.Body>
       <Modal.Footer>
         <Button appearance="primary" onClick={closeResults}>Close</Button>
