@@ -3,6 +3,7 @@ import styles from "../styles/Home.module.css";
 
 import CONSTANTS from "/src/utils/constants";
 import { templateConfig } from "/src/utils/templates";
+import { Disclaimer } from "../components/Disclaimer";
 
 function CourseCard({ displayName, description, id }) {
   return (
@@ -37,7 +38,7 @@ export default function Home() {
 
         <div className={styles.grid}>{courseTemplates}</div>
       </main>
-
+    <Disclaimer/>
     </div>
   );
 }

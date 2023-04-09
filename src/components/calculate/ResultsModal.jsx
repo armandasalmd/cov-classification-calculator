@@ -49,7 +49,9 @@ export default function ResultsModal({ show, closeResults, result }) {
           <p style={{ marginTop: "1rem" }}>More details</p>
         )}
         {result != null && result.success && CreateMoreDetailsList(result)}
-          <p style={{ marginTop: "1rem" }}><Disclaimer asMessage /></p>
+
+          <div style={{ marginTop: "1rem" }}><Disclaimer asMessage /></div>
+          
       </Modal.Body>
       <Modal.Footer>
         <Button appearance="primary" onClick={closeResults}>Close</Button>
