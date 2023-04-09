@@ -38,10 +38,6 @@ export default function Home() {
         <div className={styles.grid}>{courseTemplates}</div>
       </main>
 
-      <footer className={styles.footer}>
-        <p>Disclaimer! This calculator has not been officially verified as accurate against Coventry University&apos;s internal systems. However, it does follow the algorithms correctly (to the best of our knowledge).</p>
-        <p>by Armandas Barkauskas</p>
-      </footer>
     </div>
   );
 }
